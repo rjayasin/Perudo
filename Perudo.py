@@ -20,16 +20,16 @@ def removeAces(inputList):
 	return [value for value in inputList if value != 1]
 
 
-players = raw_input("How many players? :")
+players = raw_input("How many players? :")	
 timeRolled = int(players)*5
 
 rolls = populateDiceList();
 print rolls
+print "Aces removed " + str(removeAces(rolls))
+print "# of aces: " + str(countAces(rolls))
+rollsNoAces = removeAces(rolls)
+print "The mode without aces is " + str(returnMode(rollsNoAces))
 
-print removeAces(rolls)
-
-
-print countAces(rolls)
 
 # this = probability.randomIndex(rolls)
 # print "random index " + str(this)
