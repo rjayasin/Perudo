@@ -10,10 +10,11 @@ def populateDiceList():
 
 def returnMode(inputList):
 	from collections import Counter
-	data = Counter(inputList)	#Kind of a dict, [(number, occurrances)] 
+	data = Counter(inputList)	#Kind of a dict, [(number, occurrences)] 
 	for x, y in data.most_common(1): 
-		return x #this will return only the mode itself
+		return (x, y) #return mode and occurrences separately
 
+#aces in Perudo are wildcards, the number 1 
 def countAces(inputList):
 	return inputList.count(1)
 
@@ -29,11 +30,10 @@ print rolls
 print "Aces removed " + str(removeAces(rolls))
 print "# of aces: " + str(countAces(rolls))
 rollsNoAces = removeAces(rolls)
-print "The mode without aces is " + str(returnMode(rollsNoAces))
+handMode, handModeTimes = returnMode(rollsNoAces)
+print "The mode without aces is " + str(handMode) + ", " + str(handModeTimes) + " times."
+probability.probOfWin(rolls)
 
-
-# this = probability.randomIndex(rolls)
-# print "random index " + str(this)
 # print len(rolls) , " many rolls"
 # print rolls
 # print rolls[0:5]
