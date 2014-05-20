@@ -10,8 +10,9 @@ def populateDiceList():
 
 def returnMode(inputList):
 	from collections import Counter
-	data = Counter(inputList)
-	return data.most_common(1)
+	data = Counter(inputList)	#Kind of a dict, [(number, occurrances)] 
+	for x, y in data.most_common(1): 
+		return x #this will return only the mode itself
 
 def countAces(inputList):
 	return inputList.count(1)
