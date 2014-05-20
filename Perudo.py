@@ -21,22 +21,25 @@ def countAces(inputList):
 def removeAces(inputList):
 	return [value for value in inputList if value != 1]
 
+def handSlicing(allRolls, playerNum):
+	#what a painful sounding function name!
+	return allRolls[((playerNum-1)*5):(playerNum*5)]
+
 
 players = raw_input("How many players? :")	
 timeRolled = int(players)*5
 
 rolls = populateDiceList();
 print rolls
+for x in range(1, int(players)+1):
+	print "Player " + str(x) + "\'s hand: " + str(handSlicing(rolls, x))
+
+
 print "Aces removed " + str(removeAces(rolls))
 print "# of aces: " + str(countAces(rolls))
-rollsNoAces = removeAces(rolls)
-handMode, handModeTimes = returnMode(rollsNoAces)
-print "The mode without aces is " + str(handMode) + ", " + str(handModeTimes) + " times."
-probability.probOfWin(rolls)
+# rollsNoAces = removeAces(rolls)
+# handMode, handModeTimes = returnMode(rollsNoAces)
+# print "The mode without aces is " + str(handMode) + ", " + str(handModeTimes) + " times."
+# probability.probOfWin(rolls)
 
-# print len(rolls) , " many rolls"
-# print rolls
-# print rolls[0:5]
-# print rolls[5:10]
-# print rolls[10:15]
 
