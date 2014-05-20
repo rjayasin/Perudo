@@ -6,5 +6,7 @@ def randomIndex(allRolls):
 	return allRolls[x]
 
 def probOfWin(allRolls):
-	atLeastOne = ((1 - (2.0/3.0)**len(allRolls)))*100
-	print "The probability of at least one ??? is " str(atLeastOne)
+	for x in range (1, 11):
+		atLeastSome = (((1 - (2.0/3.0)**len(allRolls)))*100)/x
+		#2/3 probability because 2/6 outcomes = win
+		print "The probability of at least " + str(x) + " winning die is " + str(atLeastSome) + "%."
