@@ -27,28 +27,22 @@ def handSlicing(allRolls, playerNum):
 	return allRolls[((playerNum-1)*5):(playerNum*5)]
 
 
-players = raw_input("How many players? :")	
+players = raw_input("How many players? : ")	
 timeRolled = int(players)*5
 
+probThreshhold = 35.00
 rolls = populateDiceList();
 print rolls
 for x in range(1, int(players)+1):
 	currentHand = handSlicing(rolls, x)
 	handMode, handModeTimes = returnMode(removeAces(currentHand))
+	acesInHand = countAces(currentHand)
+	handTotal = acesInHand + handModeTimes
+	totalWager = probability.probOfWin(rolls, probThreshhold) + handTotal
 	print "Player " + str(x) + "\'s hand: " + str(currentHand)
-	print "Player " + str(x) + "\'s hand without aces: " + str(removeAces(currentHand))
-	print "Number of aces in hand: " + str(countAces(currentHand))
+	# print "Player " + str(x) + "\'s hand without aces: " + str(removeAces(currentHand))
+	print "Number of aces in hand: " + str(acesInHand)
 	print ("This player should wager on " + str(handMode)
-	+ " which appears " + str(handModeTimes) + " times")
+	+ " which appears " + str(handModeTimes + acesInHand) + " times")
+	print "My wager is " + str(totalWager) + " " + str(handMode) + "\'s."
 	print "\n"
-
-
-
-# print "Aces removed " + str(removeAces(rolls))
-# print "# of aces: " + str(countAces(rolls))
-# rollsNoAces = removeAces(rolls)
-# handMode, handModeTimes = returnMode(rollsNoAces)
-# print "The mode without aces is " + str(handMode) + ", " + str(handModeTimes) + " times."
-# probability.probOfWin(rolls)
-
-
