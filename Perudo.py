@@ -26,6 +26,14 @@ def handSlicing(allRolls, playerNum):
 	#what a painful sounding function name!
 	return allRolls[((playerNum-1)*5):(playerNum*5)]
 
+def isWagerTrue(aces, dieValue, dieWager, allRolls):
+	actualCount = allRolls.count(dieValue)
+	print "There actually were " + str(actualCount + aces)
+	if dieWager <= actualCount + aces:
+		return True
+	else:
+		return False
+
 
 players = raw_input("How many players? : ")	
 timeRolled = int(players)*5
@@ -37,6 +45,7 @@ for x in range(1, int(players)+1):
 	currentHand = handSlicing(rolls, x)
 	handMode, handModeTimes = returnMode(removeAces(currentHand))
 	acesInHand = countAces(currentHand)
+	allOfTheAces = countAces(rolls)
 	handTotal = acesInHand + handModeTimes
 	totalWager = probability.probOfWin(rolls, probThreshhold) + handTotal
 	print "Player " + str(x) + "\'s hand: " + str(currentHand)
@@ -45,4 +54,5 @@ for x in range(1, int(players)+1):
 	print ("This player should wager on " + str(handMode)
 	+ " which appears " + str(handModeTimes + acesInHand) + " times")
 	print "My wager is " + str(totalWager) + " " + str(handMode) + "\'s."
+	print "This wager is " + str(isWagerTrue(allOfTheAces, handMode, totalWager, rolls))
 	print "\n"

@@ -11,8 +11,8 @@ def probOfWin(allRolls, threshold):
 		probNext = ((1 - (2.0/3.0)**(len(allRolls)-5))*100)/(x + 1)
 		#2/3 probability because 2/6 outcomes = win
 		#Will definitely revise the above probability calculations later. 
-		print ("The probability of at least " + str(x) 
-				+ " winning die is " + str(probNow) + "%.")
+		# print ("The probability of at least " + str(x) 
+				# + " winning die is " + str(probNow) + "%.")
 		if threshold > probNext: #this condition doesn't have to be compound!
 			return x
 			
