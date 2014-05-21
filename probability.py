@@ -9,4 +9,5 @@ def probOfWin(allRolls):
 	for x in range (1, 11):
 		atLeastSome = (((1 - (2.0/3.0)**len(allRolls)))*100)/x
 		#2/3 probability because 2/6 outcomes = win
+		#that /x at the end there is almost definitely wrong :(
 		print "The probability of at least " + str(x) + " winning die is " + str(atLeastSome) + "%."
