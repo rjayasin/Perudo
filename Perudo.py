@@ -50,11 +50,9 @@ for x in range(1, int(players)+1):
 	allOfTheAces = countAces(rolls)
 	handTotal = acesInHand + handModeTimes
 	totalWager = probability.probOfWin(rolls, probThreshhold) + handTotal
-	print "Player " + str(x) + "\'s hand: " + str(currentHand)
-	# print "Player " + str(x) + "\'s hand without aces: " + str(removeAces(currentHand))
-	print "Number of aces in hand: " + str(acesInHand)
-	print ("This player should wager on " + str(handMode)
-	+ " which appears " + str(handTotal) + " times")
-	print "My wager is " + str(totalWager) + " " + str(handMode) + "\'s."
-	print "This wager is " + str(isWagerTrue(allOfTheAces, handMode, totalWager, rolls))
+	print "Player " + str(x) + "\'s hand:", currentHand
+	print "Number of aces in hand:", acesInHand
+	print "This player should wager on", handMode, "which appears", handTotal, "times."
+	print "My wager is", totalWager, str(handMode) + "\'s."
+	print "This wager is", isWagerTrue(allOfTheAces, handMode, totalWager, rolls)
 	print "\n"
