@@ -38,7 +38,9 @@ def isWagerTrue(aces, dieValue, dieWager, allRolls):
 players = raw_input("How many players? : ")	
 timeRolled = int(players)*5
 
-probThreshhold = 35.00
+probThreshhold = 20.00 
+#This translates to % in probOfWin function.
+#Needs to adjust based on number of remaining dice...
 rolls = populateDiceList();
 print rolls
 for x in range(1, int(players)+1):
@@ -52,7 +54,7 @@ for x in range(1, int(players)+1):
 	# print "Player " + str(x) + "\'s hand without aces: " + str(removeAces(currentHand))
 	print "Number of aces in hand: " + str(acesInHand)
 	print ("This player should wager on " + str(handMode)
-	+ " which appears " + str(handModeTimes + acesInHand) + " times")
+	+ " which appears " + str(handTotal) + " times")
 	print "My wager is " + str(totalWager) + " " + str(handMode) + "\'s."
 	print "This wager is " + str(isWagerTrue(allOfTheAces, handMode, totalWager, rolls))
 	print "\n"
