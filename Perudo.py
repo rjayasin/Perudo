@@ -28,17 +28,18 @@ def handSlicing(allRolls, playerNum):
 
 def isWagerTrue(aces, dieValue, dieWager, allRolls):
 	actualCount = allRolls.count(dieValue)
-	print "There actually were " + str(actualCount + aces)
+	print "There actually were", actualCount + aces
 	if dieWager <= actualCount + aces:
-		return True
+		verdict = True
 	else:
-		return False
+		verdict = False
+	print "This wager is", verdict
 
 
 players = raw_input("How many players? : ")	
 timeRolled = int(players)*5
 
-probThreshhold = 20.00 
+probThreshhold = 20.00
 #This translates to % in probOfWin function.
 #Needs to adjust based on number of remaining dice...
 rolls = populateDiceList();
@@ -54,5 +55,5 @@ for x in range(1, int(players)+1):
 	print "Number of aces in hand:", acesInHand
 	print "This player should wager on", handMode, "which appears", handTotal, "times."
 	print "My wager is", totalWager, str(handMode) + "\'s."
-	print "This wager is", isWagerTrue(allOfTheAces, handMode, totalWager, rolls)
+	isWagerTrue(allOfTheAces, handMode, totalWager, rolls)
 	print "\n"
